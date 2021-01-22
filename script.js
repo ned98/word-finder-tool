@@ -1,8 +1,6 @@
 let allElements = document.querySelectorAll('*');
-// let input = document.getElementById('input');
-let input = $('#input')
-let wordListTitle = $('#word-list-title');
-let wordList = $('#word-list');
+let input = $('input')
+let wordList = $('.word-list');
 let img = document.getElementsByTagName('img');
 let log = console.log;
 
@@ -14,12 +12,12 @@ $(document).ready(function () {
 input.keypress(function (e) {
     if (e.which === 13) {
         e.preventDefault();
-        $('#btnAdd').click();
+        $('.btnAdd').click();
     }
 });
 
 // Check if input is 0 & adds new Element
-$('#btnAdd').click(function () {
+$('.btnAdd').click(function () {
     if (input.val().length === 0) {
         input.addClass('shake');
 
@@ -107,7 +105,7 @@ $("ul").click(function (e) {
 });
 
 // Removes all items from Storage
-$("#resetBtn").click(function () {
+$(".resetBtn").click(function () {
     if (confirm("Are you sure?") == false) return;  // Asks the user for confirmation
     clearStorage();
 });

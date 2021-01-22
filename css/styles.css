@@ -2,7 +2,7 @@
   position: relative;
 }
 
-#logo {
+.logo {
   display: block;
   margin-bottom: 15px;
   margin-left: auto;
@@ -11,27 +11,22 @@
   height: 150px;
 }
 
-#input {
+input {
   width: 60%;
   padding: 5px;
 }
 
-#btnAdd {
+.word-list {
+  margin-top: 30px;
+}
+
+.btnAdd {
+  margin-left: 7px;
   padding: 5px;
   width: 28%;
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-}
-
-#word-list-title {
-  font-size: 14px;
-  margin-left: 5px;
-  margin-top: 20px;
-}
-
-.hideList {
-  display: none;
 }
 
 li {
@@ -41,24 +36,20 @@ li {
   padding: 3px;
   margin-bottom: 8px;
 }
+
 .li-text {
-  /* width: 60%; */
   display: inline;
   margin-right: 3px;
 }
 
-#resetBtn {
+.resetBtn {
+  cursor: pointer;
   padding: 3px;
   margin-bottom: 5px;
-  float: right;
   border: none;
   background-color: #fff;
   font-weight: 500;
   font-size: 16px;
-}
-
-#resetBtn {
-  cursor: pointer;
 }
 
 .delBtn {
@@ -73,42 +64,46 @@ li {
   cursor: pointer;
 }
 
-.overlay {
-  overflow: hidden;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-
 .shake {
   animation: shake .1s linear;
   animation-iteration-count: 3;
 }
 
 .rainbow {
-    animation: rainbow 1s infinite;
-    /* Chrome, Safari, Opera */
     -webkit-animation: rainbow 5s infinite;
+    -moz-animation: rainbow 5s infinite;
+    -ms-animation: rainbow 5s infinite;
+    -o-animation: rainbow 5s infinite;
+    animation: rainbow 1s infinite;
 }
 
-  @keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
-    }
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
-    } 
-  }
+@keyframes shake {
+  10%, 90%      { transform: translate3d(-1px, 0, 0); }
+  20%, 80%      { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60%      { transform: translate3d(4px, 0, 0); } 
+}
+
+@-webkit-keyframes shake {
+  10%, 90%      { -webkit-transform: translate3d(-1px, 0, 0); transform: translate3d(-1px, 0, 0); }
+  20%, 80%      { -webkit-transform: translate3d(2px, 0, 0);  transform: translate3d(-2px, 0, 0); }
+  30%, 50%, 70% { -webkit-transform: translate3d(-4px, 0, 0); transform: translate3d(-4px, 0, 0); }
+  40%, 60%      { -webkit-transform: translate3d(4px, 0, 0);  transform: translate3d(4px, 0, 0); } 
+}
+
+@-moz-keyframes shake {
+  10%, 90%      { -moz-transform: translate3d(-1px, 0, 0); transform: translate3d(-1px, 0, 0); }
+  20%, 80%      { -moz-transform: translate3d(2px, 0, 0);  transform: translate3d(-2px, 0, 0); }
+  30%, 50%, 70% { -moz-transform: translate3d(-4px, 0, 0); transform: translate3d(-4px, 0, 0); }
+  40%, 60%      { -moz-transform: translate3d(4px, 0, 0);  transform: translate3d(4px, 0, 0); } 
+}
+
+@-o-keyframes shake {
+  10%, 90%      { -o-transform: translate3d(-1px, 0, 0); transform: translate3d(-1px, 0, 0); }
+  20%, 80%      { -o-transform: translate3d(2px, 0, 0);  transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { -o-transform: translate3d(-4px, 0, 0); transform: translate3d(-4px, 0, 0); }
+  40%, 60%      { -o-transform: translate3d(4px, 0, 0);  transform: translate3d(4px, 0, 0); } 
+}
 
 @keyframes rainbow {
     0%{color: orange;}	
@@ -135,4 +130,18 @@ li {
     80%{color: DeepPink;}
     90%{color: DodgerBlue;}
       100%{color: orange;}
+}
+
+/* Firefox */
+@-moz-keyframes rainbow {
+  0%{color: orange;}	
+  10%{color: purple;}	
+    20%{color: red;}
+  30%{color: CadetBlue;}
+  50%{color: coral;}
+    60%{color: green;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+    100%{color: orange;}
 }

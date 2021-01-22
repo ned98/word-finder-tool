@@ -1,7 +1,7 @@
 {
     "name": "Word Finder Tool",
     "version": "1.0",
-    "description": "Locate a specific word or a phrase in a document or web page.",
+    "description": "Locate a specific word or a phrase, on a web page.",
     "manifest_version": 2,
     "permissions": [
         "contextMenus",
@@ -9,7 +9,7 @@
         "storage"
     ],
     "browser_action": {
-        "default_icon": "images/icon.png",
+        "default_icon": "images/logo.png",
         "default_popup": "popup.html"
     },
     "content_scripts": [
