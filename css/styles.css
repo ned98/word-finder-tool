@@ -1,0 +1,138 @@
+.container {
+  position: relative;
+}
+
+#logo {
+  display: block;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 150px;
+}
+
+#input {
+  width: 60%;
+  padding: 5px;
+}
+
+#btnAdd {
+  padding: 5px;
+  width: 28%;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#word-list-title {
+  font-size: 14px;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+.hideList {
+  display: none;
+}
+
+li {
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 3px;
+  margin-bottom: 8px;
+}
+.li-text {
+  /* width: 60%; */
+  display: inline;
+  margin-right: 3px;
+}
+
+#resetBtn {
+  padding: 3px;
+  margin-bottom: 5px;
+  float: right;
+  border: none;
+  background-color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+#resetBtn {
+  cursor: pointer;
+}
+
+.delBtn {
+  width: 20%;
+  width: 24px;
+  height: 24px;
+  margin-right: 3px;
+  float: right;
+}
+
+.delBtn:hover {
+  cursor: pointer;
+}
+
+.overlay {
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.shake {
+  animation: shake .1s linear;
+  animation-iteration-count: 3;
+}
+
+.rainbow {
+    animation: rainbow 1s infinite;
+    /* Chrome, Safari, Opera */
+    -webkit-animation: rainbow 5s infinite;
+}
+
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    } 
+  }
+
+@keyframes rainbow {
+    0%{color: orange;}	
+    10%{color: purple;}	
+      20%{color: red;}
+    30%{color: CadetBlue;}
+    50%{color: coral;}
+      60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+      100%{color: orange;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow {
+    0%{color: orange;}	
+    10%{color: purple;}	
+      20%{color: red;}
+    30%{color: CadetBlue;}
+    50%{color: coral;}
+      60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+      100%{color: orange;}
+}

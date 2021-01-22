@@ -1,0 +1,30 @@
+{
+    "name": "Word Finder Tool",
+    "version": "1.0",
+    "description": "Locate a specific word or a phrase in a document or web page.",
+    "manifest_version": 2,
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "storage"
+    ],
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/jquery-3.5.1.min.js",
+                "script.js",
+                "/js/findAndReplaceDOMText.js"
+            ],
+            "css": [
+                "css/styles.css"
+            ]
+        }
+    ]
+}
