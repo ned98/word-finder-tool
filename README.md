@@ -1,1 +1,1 @@
-Chrome Extension to locate a specific word, or a phrase in a document, or web page.
+Chrome Extension to locate a specific word or a phrase, on a web page.
