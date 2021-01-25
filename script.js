@@ -1,7 +1,6 @@
 let allElements = document.querySelectorAll('*');
 let input = $('input')
 let wordList = $('.word-list');
-let img = document.getElementsByTagName('img');
 let log = console.log;
 
 $(document).ready(function () {
@@ -27,7 +26,6 @@ $('.btnAdd').click(function () {
 
         return;
     }
-
     addElement();
 });
 
@@ -44,14 +42,7 @@ function addElement() {
     input.val('');
 }
 
-$("ul").hover(function (e) {
-    let closestLi = $(e.target).closest('li');
-
-    closestLi.hover(function () {
-        $('.overlay').css({ overflow: 'visible' })
-    });
-});
-
+// Saves to Chrome Storage
 function saveToStorage(word) {
     chrome.storage.local.get(function (items) {
         if (Object.keys(items).length > 0 && items.words) {
@@ -94,17 +85,18 @@ chrome.storage.local.get(function (items) {
     };
 });
 
+
 $("ul").click(function (e) {
     let closestLi = $(e.target).closest('li');
     let closestText = closestLi.find('.li-text');
 
-    if ($(e.target).hasClass('delBtn')) {   // Removes the 'li' if you click the "trash icon"
-        e.target.parentElement.remove();
-        deleteElement(closestText.text());
+    if ($(e.target).hasClass('delBtn')) {
+        e.target.parentElement.remove();   // Removes the 'li' element
+        deleteElement(closestText.text()); // Removes the element from Chrome Storage
     }
 });
 
-// Removes all items from Storage
+// Removes all items from Chrome Storage
 $(".resetBtn").click(function () {
     if (confirm("Are you sure?") == false) return;  // Asks the user for confirmation
     clearStorage();
@@ -116,9 +108,7 @@ function clearStorage() {
     chrome.storage.local.clear(function () {
         log('Data removed from storage!');
         let error = chrome.runtime.lastError;
-        if (error) {
-            console.error(error);
-        }
+        if (error) console.error(error);
     });
 }
 

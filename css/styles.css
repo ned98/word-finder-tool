@@ -21,6 +21,7 @@ input {
 }
 
 .btnAdd {
+  cursor: pointer;
   margin-left: 7px;
   padding: 5px;
   width: 28%;
@@ -74,7 +75,7 @@ li {
     -moz-animation: rainbow 5s infinite;
     -ms-animation: rainbow 5s infinite;
     -o-animation: rainbow 5s infinite;
-    animation: rainbow 1s infinite;
+    animation: rainbow 5s infinite;
 }
 
 @keyframes shake {
