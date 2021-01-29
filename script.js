@@ -12,7 +12,7 @@ input.keypress(function (e) {
     if (e.which === 13) $('.btnAdd').click();
 });
 
-// Adds new ELement, if input is not empty
+// Adds new Element, if input is not empty
 $('.btnAdd').click(function () {
     if (input.val().length === 0) {
         input.addClass('shake');
