@@ -1,7 +1,3 @@
-.container {
-  position: relative;
-}
-
 .logo {
   display: block;
   margin-bottom: 15px;
@@ -63,6 +59,10 @@ li {
 
 .delBtn:hover {
   cursor: pointer;
+}
+
+em {
+  font-style: normal;
 }
 
 .shake {

@@ -9,13 +9,10 @@ $(document).ready(function () {
 
 // On Enter key press
 input.keypress(function (e) {
-    if (e.which === 13) {
-        e.preventDefault();
-        $('.btnAdd').click();
-    }
+    if (e.which === 13) $('.btnAdd').click();
 });
 
-// Check if input is 0 & adds new Element
+// Adds new ELement, if input is not empty
 $('.btnAdd').click(function () {
     if (input.val().length === 0) {
         input.addClass('shake');
@@ -29,6 +26,36 @@ $('.btnAdd').click(function () {
     addElement();
 });
 
+$("ul").click(function (e) {
+    let closestLi = $(e.target).closest('li');
+    let closestText = closestLi.find('.li-text');
+
+    if ($(e.target).hasClass('delBtn')) {
+        e.target.parentElement.remove();   // Removes the 'li' element
+        deleteElement(closestText.text()); // Removes the element from Chrome Storage
+    }
+});
+
+// Removes all items from Chrome Storage
+$(".resetBtn").click(function () {
+    if (confirm("Are you sure?") == false) return;  // Asks the user for confirmation
+    clearStorage();
+});
+
+chrome.storage.local.get(function (items) {
+    if (Object.keys(items).length > 0 && items.words) {
+        items.words.forEach(function (word) {
+            allElements.forEach(function (element) {
+                findAndReplaceDOMText(element, {
+                    find: word,
+                    wrap: "em",
+                    wrapClass: "rainbow"
+                });
+            });
+        });
+    };
+});
+
 // Adds new Element & Saves to Storage
 function addElement() {
     let li =
@@ -38,7 +65,8 @@ function addElement() {
         </li>`;
     wordList.append(li);
 
-    saveToStorage(input.val());
+    let trimmedInput = $("input").val().trim();
+    saveToStorage(trimmedInput);
     input.val('');
 }
 
@@ -71,37 +99,7 @@ function showList() {
     });
 }
 
-chrome.storage.local.get(function (items) {
-    if (Object.keys(items).length > 0 && items.words) {
-        items.words.forEach(function (word) {
-            allElements.forEach(function (element) {
-                findAndReplaceDOMText(element, {
-                    find: word,
-                    wrap: "span",
-                    wrapClass: "rainbow"
-                });
-            });
-        });
-    };
-});
-
-
-$("ul").click(function (e) {
-    let closestLi = $(e.target).closest('li');
-    let closestText = closestLi.find('.li-text');
-
-    if ($(e.target).hasClass('delBtn')) {
-        e.target.parentElement.remove();   // Removes the 'li' element
-        deleteElement(closestText.text()); // Removes the element from Chrome Storage
-    }
-});
-
 // Removes all items from Chrome Storage
-$(".resetBtn").click(function () {
-    if (confirm("Are you sure?") == false) return;  // Asks the user for confirmation
-    clearStorage();
-});
-
 function clearStorage() {
     wordList.empty();
 
